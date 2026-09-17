@@ -1,0 +1,16 @@
+{
+  "name": "bitterclip-plugin",
+  "version": "0.1.3",
+  "private": true,
+  "license": "MIT",
+  "homepage": "https://bitterclip.com/",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-packages.mjs",
+    "verify": "node scripts/verify-packages.mjs",
+    "test": "node --test tests/package-compatibility/*.test.mjs tests/workflow-cases/*.test.mjs"
+  },
+  "devDependencies": {
+    "ajv": "^8.20.0"
+  }
+}

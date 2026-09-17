@@ -1,0 +1,59 @@
+{
+  "case_id": null,
+  "run_at": null,
+  "host": null,
+  "client_version": null,
+  "plan_and_role": null,
+  "package_version": null,
+  "package_sha256": null,
+  "server_url": "https://app.bitterclip.com/mcp",
+  "tested_server": {
+    "release_identity": null,
+    "operation_catalog_identity": null
+  },
+  "account_label": null,
+  "connection_method": null,
+  "with_without_skills_arm": null,
+  "fixture": {
+    "designation": null,
+    "rights_scope": null
+  },
+  "target": {
+    "id": null,
+    "type": null,
+    "revision_before": null,
+    "revision_after": null,
+    "render_plan_hash": null,
+    "render_generation": null,
+    "prior_exact_export_id": null,
+    "current_exact_export_id": null
+  },
+  "useful_creative_clarifications": null,
+  "procedural_coaching_requests": null,
+  "unnecessary_questions": null,
+  "observations": [],
+  "tool_errors": [],
+  "duplicate_writes": null,
+  "evidence_paths": {
+    "host_session": null,
+    "tool_trace": null,
+    "editor_media_review": null,
+    "render_and_export": null,
+    "comparison": null
+  },
+  "timing_seconds": {
+    "signup_and_auth": null,
+    "upload_and_processing": null,
+    "editorial_and_render": null,
+    "first_useful_result": null
+  },
+  "scores": {
+    "source_support": null,
+    "editorial_coherence": null,
+    "editor_legibility": null,
+    "revision_quality": null,
+    "delivery_identity": null
+  },
+  "result": "not_run",
+  "unverified_boundaries": []
+}

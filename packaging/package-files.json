@@ -1,0 +1,18 @@
+{
+  "required": [
+    "plugin.json",
+    "mcp.json",
+    "LICENSE",
+    "skills/get-started/SKILL.md",
+    "skills/make-a-clip/SKILL.md",
+    "skills/review-and-export/SKILL.md"
+  ],
+  "optional": [
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "assets": [
+    "logo.svg",
+    "bitterclip-icon.svg"
+  ]
+}

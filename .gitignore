@@ -1,0 +1,4 @@
+dist/
+.tmp/
+EXECUTION.md
+node_modules/

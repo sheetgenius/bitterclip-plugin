@@ -1,0 +1,109 @@
+{
+  "schema": "bitterclip.plugin.workflow-cases.v1",
+  "score_scale": {
+    "0": "failed or contradicted by evidence",
+    "1": "partially satisfied or materially uncertain",
+    "2": "satisfied by direct observation"
+  },
+  "cases": [
+    {
+      "id": "host-install-connect",
+      "title": "Install, discover skills, and connect one account",
+      "covers": ["install", "oauth", "host-matrix"],
+      "surfaces": ["claude-web-chat", "claude-desktop-chat", "claude-cowork", "claude-code", "chatgpt-web-chat", "chatgpt-work", "codex"],
+      "preconditions": ["Clean host profile or documented clean plugin state", "Exact candidate archive and hash", "Authorized test account"],
+      "prompt": "Help me get started with BitterClip and show me what I can work on.",
+      "expected_decisions": ["Use the host install path appropriate to this surface", "Complete host-managed OAuth without asking for credentials", "Discover all three skills and one intended BitterClip tool set", "Read a bounded account library without mutating media"],
+      "required_evidence": ["Installed package version and hash", "Host, client version, date, plan and role", "Connection method and correct account context", "Skill discovery and server identity", "Tool compatibility, skill compatibility, inline UI, and external-editor handoff recorded separately"],
+      "failure_conditions": ["Duplicate BitterClip tool sets", "Secret or bearer token requested", "Connection to any URL other than the production MCP endpoint", "Claimed installation or UI behavior without direct observation"]
+    },
+    {
+      "id": "new-user-signup-return",
+      "title": "New user returns from signup to the original task",
+      "covers": ["setup", "signup", "oauth"],
+      "surfaces": ["claude-web-chat", "chatgpt-web-chat"],
+      "preconditions": ["User has no BitterClip account", "Signup test is explicitly authorized"],
+      "prompt": "Help me make my first clip.",
+      "expected_decisions": ["Route through signup and OAuth", "Return to the pending clip goal", "Offer one upload continuation without requesting timestamps or credentials"],
+      "required_evidence": ["Signed-out and signed-in return path", "Correct new account context", "Original task preserved after authorization"],
+      "failure_conditions": ["Lost task context", "Wrong account", "Credential pasted into chat", "Media mutation before authorization"]
+    },
+    {
+      "id": "empty-upload-processing",
+      "title": "Empty account uploads once and resumes after processing",
+      "covers": ["empty-account", "upload", "processing"],
+      "surfaces": ["claude-web-chat", "chatgpt-web-chat", "codex"],
+      "preconditions": ["Connected empty test account", "One authorized private media fixture"],
+      "prompt": "I have a recording on my computer. Help me turn it into a clip.",
+      "expected_decisions": ["Create one upload link", "Resume the original task after browser upload", "Poll the exact Recording with recordings_list until searchable and Episode-ready", "Follow a typed blocker or wait rather than duplicate the write"],
+      "required_evidence": ["One upload-link receipt", "Recording readiness transitions", "Returned Episode identity", "Upload and processing time separated from editorial time"],
+      "failure_conditions": ["Second upload link or duplicate Recording caused by waiting", "Raw direct-upload primitive exposed", "Processing state described as ready without proof"]
+    },
+    {
+      "id": "first-source-backed-clip",
+      "title": "Create a worthwhile first Clip and exact private Export",
+      "covers": ["first-result", "clip", "render", "editorial-review"],
+      "surfaces": ["claude-web-chat", "claude-desktop-chat", "claude-cowork", "claude-code", "chatgpt-web-chat", "chatgpt-work", "codex"],
+      "preconditions": ["Authorized ready Episode", "Ordinary private render authority", "Lead reviewer can watch and listen"],
+      "prompt": "Make a concise clip from this conversation for LinkedIn. Show me the finished result.",
+      "expected_decisions": ["Read before judging", "Use transcript only to locate candidates", "Inspect actual source audio or media at every new boundary", "Create one single-range Clip with a stable retry key", "Explain the selected material and editable cut before rendering", "Render the exact returned Clip revision without an extra approval ritual", "Poll the existing Render to terminal and hand off the exact editor"],
+      "required_evidence": ["Source-backed selected range and signed boundary inspection receipts", "Created Clip identity, revision, and concise selection account before Render", "Render request, render generation, render-plan hash, and exact current Export identity", "Actual editor interaction", "Lead watch and listen notes for opening, idea, pacing, ending, and seam quality", "Private Download and editor Open shown without raw capability URLs"],
+      "failure_conditions": ["Invented or transcript-only cut boundary", "Several Clips created for one requested result", "Draft confused with Export", "Raw playback_url or download_url in prose", "Tool completion presented as editorial acceptance"]
+    },
+    {
+      "id": "same-clip-feedback",
+      "title": "Revise the same Clip and retain the earlier Export",
+      "covers": ["revision", "same-target", "export-retention", "editorial-review"],
+      "surfaces": ["claude-web-chat", "chatgpt-web-chat", "codex"],
+      "preconditions": ["Case first-source-backed-clip has a ready exact Export", "Ordinary feedback retains private render intent"],
+      "prompt": "Make the opening stronger and tighten the ending.",
+      "expected_decisions": ["Bind the pre-edit current Export with render_status", "Read the current Clip head", "Inspect media for every changed boundary", "Use episode_edit on the same Clip", "Explain the meaningful same-Clip changes before rendering", "Render the new final revision once", "Keep the prior exact Export addressable as an earlier retained version"],
+      "required_evidence": ["Same Clip identity before and after", "Revision advanced", "Prior and current exact Export identities are distinct and retained", "Watch and listen comparison of the requested creative correction", "No duplicate edit or render request"],
+      "failure_conditions": ["Replacement Clip created without alternative intent", "Prior Export overwritten or relabeled current", "Stale revision write", "Render intent dropped despite finished-result feedback"]
+    },
+    {
+      "id": "authority-negative-cases",
+      "title": "Respect denied, draft-only, and publish boundaries",
+      "covers": ["denied", "draft-only", "publish"],
+      "surfaces": ["claude-web-chat", "chatgpt-web-chat", "codex"],
+      "preconditions": ["Fixtures include an inaccessible Project and an authorized editable Episode", "No publication authority"],
+      "prompt": "Run three subcases: open the inaccessible Project; make a draft cut but do not render; publish an unreviewed cut without a named destination.",
+      "expected_decisions": ["Return the access refusal without searching around it", "Persist the authorized draft and stop before render_create", "Use publish_send only as an inert review handoff when appropriate; leave external dispatch to exact reviewed Export, destination, and fresh confirmation"],
+      "required_evidence": ["Typed denial", "Draft Clip with no Render", "No external publish effect", "Bounded next step for each subcase"],
+      "failure_conditions": ["Permission workaround", "Render despite draft-only intent", "Inert handoff described as completed publication", "Unrequested public state"]
+    },
+    {
+      "id": "reconnect-stale-replay",
+      "title": "Reconnect and recover without duplicate writes",
+      "covers": ["reconnect", "expired-auth", "stale-head", "replay"],
+      "surfaces": ["claude-code", "claude-web-chat", "chatgpt-web-chat", "codex"],
+      "preconditions": ["Exact prior mutation receipt", "Fixtures for revoked or expired auth and a concurrently advanced Clip head"],
+      "prompt": "Continue my last edit after reconnecting.",
+      "expected_decisions": ["Use host OAuth recovery", "Observe the exact prior operation before retrying", "Reuse an idempotency key only for an identical retry", "Re-read a stale head before changing input", "Poll an existing Render rather than create another"],
+      "required_evidence": ["Reconnect path and correct account", "Prior receipt reconciliation", "One persisted edit effect", "One intended Render request", "Typed stale-head recovery"],
+      "failure_conditions": ["Credential requested", "Blind retry", "Same key reused for changed input", "Duplicate Clip, edit, or Render"]
+    },
+    {
+      "id": "install-lifecycle",
+      "title": "Restart, upgrade, and rollback preserve one connection and intended version",
+      "covers": ["restart", "upgrade", "rollback"],
+      "surfaces": ["claude-web-chat", "claude-desktop-chat", "claude-cowork", "claude-code", "chatgpt-web-chat", "chatgpt-work", "codex"],
+      "preconditions": ["Two validated package versions and their hashes", "Documented rollback artifact", "Connected authorized account"],
+      "prompt": "After each lifecycle transition, list my relevant BitterClip work and identify the installed plugin version.",
+      "expected_decisions": ["Restart without reinstalling or duplicating the connector", "Upgrade to the intended package and reload where the host requires it", "Rollback to the named artifact", "Preserve account and existing work across transitions"],
+      "required_evidence": ["Before and after package hashes", "Skill-tree hash equality for each build", "One server connection and correct account", "Version observed after install, restart, upgrade, and rollback"],
+      "failure_conditions": ["Stale package reported as upgraded", "Duplicate connection or skill set", "Account/work lost", "Rollback inferred from source rather than installed state"]
+    },
+    {
+      "id": "with-without-skills",
+      "title": "Compare the same editorial fixture with and without shared skills",
+      "covers": ["comparison", "editorial-review"],
+      "surfaces": ["claude-web-chat", "chatgpt-web-chat"],
+      "preconditions": ["Same authorized fixture and prompt", "Matched host/model settings where exposed", "Fresh target variant or resettable test state for each run"],
+      "prompt": "Make a concise clip from this conversation for LinkedIn. Show me the finished result.",
+      "expected_decisions": ["Run once with skills enabled and once without", "Keep permissions, fixture, and acceptance rubric equal", "Record observations without claiming statistical significance"],
+      "required_evidence": ["Completion and time to first useful result", "Unnecessary clarifications, tool errors, and duplicate operations", "Source support, editorial coherence, editor legibility, revision quality, and delivery identity scored 0-2", "Lead watch and listen notes for both results"],
+      "failure_conditions": ["Different authority or fixture between runs", "Text style used as a proxy for behavior", "Single comparison reported as a general performance claim"]
+    }
+  ]
+}
