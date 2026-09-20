@@ -54,6 +54,10 @@ npm test
 npm run verify
 ```
 
+The public default branch currently builds the released three-skill 0.1.3
+package. The four-skill 0.2.0 FX Studio work is a local review candidate, not a
+public source-build or GitHub download path.
+
 For Claude Code, install the generated local marketplace:
 
 ```bash
@@ -61,8 +65,9 @@ claude plugin marketplace add ./dist/claude
 claude plugin install bitterclip@bitterclip
 ```
 
-You can also upload the locally built
-`dist/archives/bitterclip-0.1.3-claude-plugin.zip` to Claude web.
+You can also upload a locally built Claude archive to Claude web when that
+candidate has been explicitly approved for installation. The available GitHub
+release remains 0.1.3; the 0.2.0 archive is a local candidate, not a download.
 
 For Codex, use the unpacked portable package at `dist/portable/bitterclip`
 through the documented local marketplace route. The Agent Plugins ZIP is a
@@ -88,7 +93,7 @@ You provide the intent and the creative correction. The agent handles source
 search, media inspection, timing evidence, edit sequencing, rendering, and
 recovery. You should not need to supply timestamps or choreograph tools.
 
-The package includes three focused skills:
+The local 0.2.0 candidate includes four focused skills:
 
 - [`get-started`](plugin/skills/get-started/SKILL.md) finds a ready Episode or
   helps continue a first upload.
@@ -96,6 +101,9 @@ The package includes three focused skills:
   source-backed Clip.
 - [`review-and-export`](plugin/skills/review-and-export/SKILL.md) binds review,
   playback, and Download to the exact current Export.
+- [`fx-studio`](plugin/skills/fx-studio/SKILL.md) authors and refines a
+  standalone programmable FX Studio scene before separately supported use in a
+  production.
 
 See the [Agent guide](docs/agent-guide.md) for good requests and the full working
 contract.
@@ -133,10 +141,10 @@ Current as of 2026-09-12:
 | Codex / ChatGPT desktop | Portable Agent Plugins package through a local or repo marketplace | The package follows the documented portable schema; a fresh BitterClip install and automatic skill-discovery journey have not yet been run. |
 | ChatGPT connector | Hosted MCP connection | Connector use is separate from installing the three packaged skills; no public BitterClip plugin listing is claimed. |
 
-The new 0.1.3 candidate is a docs, metadata, and licensing release with the same
-three skills as 0.1.2. It has not replaced the privately installed 0.1.2
-candidate. See [Installation](docs/installation.md#support-status) for the exact
-boundary.
+The local 0.2.0 candidate adds a fourth FX Studio skill. It has not been
+installed in a host; the dated 0.1.2 host evidence above remains unchanged. The
+available GitHub release remains 0.1.3. See
+[Installation](docs/installation.md#support-status) for the exact boundary.
 
 ## Build and verify
 
@@ -149,10 +157,10 @@ npm test
 npm run verify
 ```
 
-`npm run verify` builds:
+For the local 0.2.0 candidate, `npm run verify` builds:
 
-- `dist/archives/bitterclip-0.1.3-claude-plugin.zip`
-- `dist/archives/bitterclip-0.1.3-agent-plugin.zip`
+- `dist/archives/bitterclip-0.2.0-claude-plugin.zip`
+- `dist/archives/bitterclip-0.2.0-agent-plugin.zip`
 - `dist/claude`, the local Claude marketplace
 - `dist/portable/bitterclip`, the unpacked portable package
 

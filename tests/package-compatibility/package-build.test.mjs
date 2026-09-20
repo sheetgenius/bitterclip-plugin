@@ -18,19 +18,18 @@ const mcp = {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
   mcpServers: { bitterclip: { type: "streamable-http", url: endpoint } }
 };
+const skillNames = ["fx-studio", "get-started", "make-a-clip", "review-and-export"];
 
 async function fixture(mutator) {
   const temporaryParent = path.join(repoRoot, ".tmp");
   await mkdir(temporaryParent, { recursive: true });
   const root = await mkdtemp(path.join(temporaryParent, "bitterclip-plugin-test-"));
   const source = path.join(root, "plugin");
-  await mkdir(path.join(source, "skills/get-started"), { recursive: true });
-  await mkdir(path.join(source, "skills/make-a-clip"), { recursive: true });
-  await mkdir(path.join(source, "skills/review-and-export"), { recursive: true });
+  for (const name of skillNames) await mkdir(path.join(source, "skills", name), { recursive: true });
   await writeFile(path.join(source, "plugin.json"), `${JSON.stringify(plugin, null, 2)}\n`);
   await writeFile(path.join(source, "mcp.json"), `${JSON.stringify(mcp, null, 2)}\n`);
   await writeFile(path.join(source, "LICENSE"), mitLicenseText);
-  for (const name of ["get-started", "make-a-clip", "review-and-export"]) {
+  for (const name of skillNames) {
     await writeFile(path.join(source, `skills/${name}/SKILL.md`), `---\nname: ${name}\ndescription: Test-only portable skill.\n---\n\nUse the current BitterClip MCP documentation.\n`);
   }
   if (mutator) await mutator(source);
@@ -57,7 +56,11 @@ test("build is deterministic and native output preserves each skill byte", async
       await readFile(path.join(output, "archives", `${plugin.name}-${plugin.version}-claude-plugin.zip`)),
       await readFile(path.join(secondOutput, "archives", `${plugin.name}-${plugin.version}-claude-plugin.zip`))
     );
-    for (const skill of ["get-started", "make-a-clip", "review-and-export"]) {
+    for (const skill of skillNames) {
+      assert.deepEqual(
+        await readFile(path.join(source, `skills/${skill}/SKILL.md`)),
+        await readFile(path.join(output, `portable/bitterclip/skills/${skill}/SKILL.md`))
+      );
       assert.deepEqual(
         await readFile(path.join(source, `skills/${skill}/SKILL.md`)),
         await readFile(path.join(output, `claude/plugins/bitterclip/skills/${skill}/SKILL.md`))
@@ -75,10 +78,24 @@ test("build is deterministic and native output preserves each skill byte", async
     assert.ok(!archivePaths.includes("mcp.json"));
     assert.ok(archivePaths.includes("LICENSE"));
     const portableArchive = path.join(output, "archives", `${plugin.name}-${plugin.version}-agent-plugin.zip`);
-    assert.ok(execFileSync("unzip", ["-Z1", portableArchive], { encoding: "utf8" }).trim().split("\n").includes("LICENSE"));
+    const portableArchivePaths = execFileSync("unzip", ["-Z1", portableArchive], { encoding: "utf8" }).trim().split("\n");
+    assert.ok(portableArchivePaths.includes("LICENSE"));
+    const expectedSkillFiles = skillNames.map((skill) => `skills/${skill}/SKILL.md`).sort();
+    assert.deepEqual(portableArchivePaths.filter((file) => file.startsWith("skills/")).sort(), expectedSkillFiles);
+    assert.deepEqual(archivePaths.filter((file) => file.startsWith("skills/")).sort(), expectedSkillFiles);
     assert.deepEqual(execFileSync("unzip", ["-p", portableArchive, "LICENSE"]), Buffer.from(mitLicenseText));
     assert.deepEqual(execFileSync("unzip", ["-p", path.join(output, "archives", `${plugin.name}-${plugin.version}-claude-plugin.zip`), "LICENSE"]), Buffer.from(mitLicenseText));
   });
+});
+
+test("four-skill package contract rejects a dropped or unapproved skill", async (t) => {
+  await t.test("dropped fx-studio", async () => withFixture(async (source) => {
+    await rm(path.join(source, "skills/fx-studio"), { recursive: true, force: true });
+  }, async ({ source, output }) => assert.rejects(buildPackages({ source, output }), /missing required package file/)));
+  await t.test("unapproved skill", async () => withFixture(async (source) => {
+    await mkdir(path.join(source, "skills/unapproved"), { recursive: true });
+    await writeFile(path.join(source, "skills/unapproved/SKILL.md"), "---\nname: unapproved\ndescription: Test-only unapproved skill.\n---\n");
+  }, async ({ source, output }) => assert.rejects(buildPackages({ source, output }), /unknown package file/)));
 });
 
 test("pinned official schema rejects a portable manifest mutation", async () => {

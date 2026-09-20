@@ -5,9 +5,10 @@ request. The agent chooses source-supported moments, makes an editable first
 cut, renders an exact private Export, and applies later feedback to that same
 Clip.
 
-This directory supports review of BitterClip 0.1.3 in Agent Plugins 1.0 format. It
-is not a submission, approval, public listing, or claim that a fresh Codex
-install has passed.
+This directory supports review of the local BitterClip 0.2.0 candidate in Agent
+Plugins 1.0 format. It is not a submission, approval, public listing, or claim
+that a fresh Codex install has passed. The available GitHub download remains
+0.1.3.
 
 ## Package
 
@@ -21,12 +22,12 @@ npm run verify
 
 Review:
 
-- archive: `dist/archives/bitterclip-0.1.3-agent-plugin.zip`
+- archive: `dist/archives/bitterclip-0.2.0-agent-plugin.zip`
 - unpacked source: `dist/portable/bitterclip`
-- release identity: `dist/release-0.1.3.json`
+- release identity: `dist/release-0.2.0.json`
 
-The portable root contains `plugin.json`, `mcp.json`, and the same three skills
-used by the Claude package. It connects to the hosted BitterClip service with
+The portable root contains `plugin.json`, `mcp.json`, and four skills used by
+the Claude package. It connects to the hosted BitterClip service with
 host-managed OAuth. It contains no credentials, customer media, local server,
 or hosted application source.
 
@@ -60,7 +61,7 @@ confirmation in BitterClip.
 ## Review checklist
 
 - [ ] Build identity and archive hash are recorded.
-- [ ] A fresh install exposes all three skills and the one intended MCP service.
+- [ ] A fresh install exposes all four skills and the one intended MCP service.
 - [ ] OAuth connects the intended authorized BitterClip account without keys in
       the package.
 - [ ] The agent makes a worthwhile first cut without asking for timestamps or
@@ -74,8 +75,8 @@ confirmation in BitterClip.
 
 ## Current boundary
 
-The 0.1.3 portable package follows OpenAI's documented schema. Its three skills
-are unchanged from 0.1.2, but a fresh Codex install and automatic skill-discovery
-journey have not been completed. A direct-file agent run of those 0.1.2 skills
-did produce a first cut and revised same-Clip Export without procedural coaching;
-audio acceptance was unavailable. There is no public ChatGPT or Codex listing.
+The local 0.2.0 portable candidate follows OpenAI's documented schema and adds
+the fourth `fx-studio` skill. It has not been installed in ChatGPT, Codex, or
+another host. The public 0.1.3 release remains the available download; a fresh
+Codex install and automatic skill-discovery journey remain unverified. There is
+no public ChatGPT or Codex listing.

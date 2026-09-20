@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0 — local FX Studio candidate
+
+- Adds `fx-studio`, a fourth shared skill for authoring and refining standalone
+  programmable FX Studio scenes before any separately supported production use.
+- Keeps the existing three Clip skills, MIT licensing, and hosted OAuth endpoint.
+  This local candidate is not a new GitHub release or an installed-host claim.
+
 ## 0.1.3 — private local licensing candidate
 
 - Adds the MIT license for this plugin package, with the canonical root license

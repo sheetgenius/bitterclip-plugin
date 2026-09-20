@@ -7,6 +7,8 @@ description: Make or revise a worthwhile source-backed BitterClip Clip or reel. 
 
 Produce a coherent editable cut from source evidence, preserving the exact target and the person's requested level of finish.
 
+If the person asks to create or refine a programmable FX Studio scene, use `fx-studio` for that source-authoring work. Do not route scene feedback through `episode_edit` or `render_create`. If they also want the scene used in a particular Clip, keep authoring and application as distinct, exact-target tasks; do not assume Project defaults are the way to place it.
+
 First distinguish the request:
 
 - Suggestions only: read the Episode and offer evidence-backed ideas; save Moments with `review_points_place` only when explicitly asked.

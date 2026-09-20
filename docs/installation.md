@@ -1,6 +1,6 @@
 # Install BitterClip for agents
 
-The BitterClip plugin combines three editorial skills with the hosted BitterClip
+The BitterClip plugin combines four focused skills with the hosted BitterClip
 OAuth MCP service. Installation adds the package to your agent host; it does not
 install or run the BitterClip application locally.
 
@@ -42,12 +42,17 @@ npm test
 npm run verify
 ```
 
-The final command writes:
+The public default branch currently produces the released three-skill 0.1.3
+package. The four-skill 0.2.0 FX Studio candidate is not a GitHub download or
+public source-build path; use it only from an explicitly approved local review
+checkout.
+
+For an approved local 0.2.0 candidate checkout, the final command writes:
 
 | Output | Use |
 | --- | --- |
-| `dist/archives/bitterclip-0.1.3-claude-plugin.zip` | Claude web upload |
-| `dist/archives/bitterclip-0.1.3-agent-plugin.zip` | Portable Agent Plugins archive |
+| `dist/archives/bitterclip-0.2.0-claude-plugin.zip` | Claude web upload |
+| `dist/archives/bitterclip-0.2.0-agent-plugin.zip` | Portable Agent Plugins archive |
 | `dist/claude` | Claude Code local marketplace |
 | `dist/portable/bitterclip` | Unpacked portable package |
 
@@ -58,10 +63,11 @@ completes.
 
 1. Open <https://claude.ai/customize/plugins>.
 2. Choose **Add plugin**, then **Upload plugin**.
-3. Select the downloaded `bitterclip-0.1.3-claude-plugin.zip`, or the locally
-   built copy in `dist/archives/`.
-4. Confirm that BitterClip is enabled and that `get-started`, `make-a-clip`, and
-   `review-and-export` appear.
+3. Select the downloaded `bitterclip-0.1.3-claude-plugin.zip`, or an explicitly
+   approved locally built 0.2.0 candidate in `dist/archives/`.
+4. Confirm the skills match the installed version: released 0.1.3 has
+   `get-started`, `make-a-clip`, and `review-and-export`; a four-skill 0.2.0
+   candidate also has `fx-studio`.
 5. Start a new conversation and ask: “Use BitterClip to help me make my first
    clip.”
 6. Complete BitterClip sign-in if Claude asks you to connect.
@@ -76,7 +82,7 @@ If your Claude plan or organization uses custom connectors separately, open the
 [prefilled BitterClip connector setup](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=BitterClip&connectorUrl=https%3A%2F%2Fapp.bitterclip.com%2Fmcp).
 
 This gives Claude access to the hosted MCP service. It does not install the
-three editorial skills from the ZIP.
+four packaged skills from the ZIP.
 
 ## Claude Code
 
@@ -97,8 +103,8 @@ for the commands supported by your installed CLI before changing configuration.
 
 ## Codex and ChatGPT desktop
 
-BitterClip 0.1.3 uses the portable Agent Plugins layout documented by OpenAI:
-root `plugin.json`, root `mcp.json`, and three folders under `skills/`. OpenAI's
+BitterClip 0.2.0 uses the portable Agent Plugins layout documented by OpenAI:
+root `plugin.json`, root `mcp.json`, and four folders under `skills/`. OpenAI's
 local installation route uses a repo or personal marketplace, then the Plugins
 Directory in the ChatGPT desktop app.
 
@@ -176,7 +182,9 @@ the package is usually unnecessary.
 ### The skills are missing
 
 - Confirm you installed the plugin package, not only the MCP connector.
-- In Claude web, verify all three skills appear on the plugin detail page.
+- In Claude web, verify the skill count matches the installed version: three
+  for released 0.1.3, or four including `fx-studio` for an approved 0.2.0
+  candidate.
 - In local hosts, restart the app and begin a new conversation after install.
 - Rebuild with `npm run verify` if the expected archive or marketplace is absent.
 
@@ -224,6 +232,16 @@ Status recorded 2026-09-12:
 - The new local 0.1.3 candidate keeps those three skills unchanged while adding
   repository documentation, license, and metadata. It has not been installed
   over the private 0.1.2 candidate.
+- The local 0.2.0 candidate adds `fx-studio` as a fourth shared skill for
+  source-only FX Studio authoring. It has not been installed in Claude web,
+  ChatGPT web, Claude Code, Codex, or another host; its browser acceptance is
+  pending lead-recorded proof. The public 0.1.3 release remains the available
+  download.
+- Browser observation recorded 2026-09-20: ChatGPT web **Plugins → Create app**
+  offered an MCP URL route, while **Skills → Create → Upload from your computer**
+  offered `.zip`, `.skill`, or `SKILL.md` uploads with a third-party warning.
+  This is an observed UI route only, not an approved action, completed install,
+  or proof that the four skills load in ChatGPT web.
 - Codex packaging is documented, but a fresh installed journey and automatic
   skill discovery remain unverified. No public Claude, ChatGPT, or Codex listing
   is claimed.

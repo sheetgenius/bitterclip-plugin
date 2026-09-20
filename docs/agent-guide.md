@@ -42,6 +42,9 @@ them into a host-specific guide.
    source-backed editing, revision of the same Clip, and finish intent.
 3. [`review-and-export`](../plugin/skills/review-and-export/SKILL.md) for exact
    playback, Download, render recovery, or feedback on an existing result.
+4. [`fx-studio`](../plugin/skills/fx-studio/SKILL.md) for a standalone
+   programmable scene or ordinary visual feedback on that same scene. It is not
+   a Recording, Clip, Render, or production-application shortcut.
 
 Use BitterClip's live tool descriptions and narrow documentation when an
 operation contract matters. For the current product model and public guidance,

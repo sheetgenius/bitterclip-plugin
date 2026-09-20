@@ -4,8 +4,9 @@ BitterClip turns a Recording into a finished Clip from an ordinary creative
 request. The agent finds source-supported moments, makes an editable first cut,
 renders an exact private Export, and applies later feedback to that same Clip.
 
-This directory supports review of the generated Claude-native 0.1.3 package. It
-is not a submission, approval, or public listing.
+This directory supports review of the generated Claude-native 0.2.0 local
+candidate. It is not a submission, approval, public listing, or installed-host
+claim. The available GitHub download remains 0.1.3.
 
 ## Build and inspect
 
@@ -22,10 +23,10 @@ The builder writes:
 
 - native plugin: `dist/claude/plugins/bitterclip`
 - local marketplace: `dist/claude`
-- web archive: `dist/archives/bitterclip-0.1.3-claude-plugin.zip`
-- release identity: `dist/release-0.1.3.json`
+- web archive: `dist/archives/bitterclip-0.2.0-claude-plugin.zip`
+- release identity: `dist/release-0.2.0.json`
 
-The package contains three skills, one hosted OAuth MCP connection, an MIT
+The package contains four skills, one hosted OAuth MCP connection, an MIT
 license, and the BitterClip icon. It contains no credentials, customer media,
 local server, hooks, or hosted application source.
 
@@ -36,15 +37,17 @@ claude plugin marketplace add ./dist/claude
 claude plugin install bitterclip@bitterclip
 ```
 
-For Claude web, open <https://claude.ai/customize/plugins>, choose **Add plugin →
-Upload plugin**, and select the generated 0.1.3 Claude ZIP. Use only an account
+For Claude web, use the generated 0.2.0 Claude ZIP only when that local
+candidate has been explicitly approved for installation. Use only an account
 and Recording you are authorized to edit and render.
 
-After installation, start a new conversation and request a real outcome. Confirm
-that all three skills are present, OAuth connects to the intended BitterClip
-account, the first Export plays and downloads, ordinary feedback revises the
-same Clip, and the revised exact Export also plays and downloads. Listen when
-audio matters.
+After an approved installation, start a new conversation and request a real
+outcome. Confirm that all four skills are present, OAuth connects to the
+intended BitterClip account, the first Export plays and downloads, ordinary
+feedback revises the same Clip, and the revised exact Export also plays and
+downloads. For FX Studio work, separately confirm the scene remains source-only
+until a supported exact-target application path is used. Listen when audio
+matters.
 
 Detailed install, reconnect, and troubleshooting guidance lives in
 [`../../docs/installation.md`](../../docs/installation.md).
@@ -76,10 +79,11 @@ The privately installed Claude web candidate is 0.1.2. It showed all three
 skills and an existing connected BitterClip connector; an explicit get-started
 invocation ran. Claude Code 2.1.269 also passed an isolated native install.
 
-The new local 0.1.3 candidate keeps the 0.1.2 skills unchanged and adds
-documentation, license, and metadata. It has not been installed over that web
-candidate. There is no public Claude listing, and package validation alone does
-not prove OAuth, automatic skill selection, editorial quality, or media review.
+The local 0.2.0 candidate adds `fx-studio` as a fourth shared skill. It has not
+been installed in Claude web; the dated 0.1.2 evidence remains the only web
+installation evidence. The available GitHub release remains 0.1.3. There is no
+public Claude listing, and package validation alone does not prove OAuth,
+automatic skill selection, editorial quality, FX Studio behavior, or media review.
 
 Before submission, the publisher still needs authorized reviewer account and
 media rights, intended destinations and regions, complete host acceptance, and

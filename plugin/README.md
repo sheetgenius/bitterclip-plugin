@@ -2,7 +2,7 @@
 
 Turn a recording into a finished clip by describing what you want.
 
-This package gives a compatible agent three BitterClip skills and a connection
+This package gives a compatible agent four BitterClip skills and a connection
 to the hosted OAuth MCP service. The agent can find relevant source material,
 make a purposeful first cut, revise that same Clip from ordinary creative
 feedback, and return the exact playable and downloadable Export.
@@ -28,6 +28,8 @@ sequence its tools.
 - [`make-a-clip`](skills/make-a-clip/SKILL.md) creates or revises a source-backed Clip.
 - [`review-and-export`](skills/review-and-export/SKILL.md) delivers the exact
   current private Export.
+- [`fx-studio`](skills/fx-studio/SKILL.md) authors or refines a standalone
+  programmable FX Studio scene before any separately supported production use.
 
 The package preserves the original Recording, source timing, permissions, Clip
 identity, and earlier Exports. Draft-only requests stay drafts. Publishing is a
@@ -47,7 +49,7 @@ For Claude web, a connector-only fallback is available here:
 
 <https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=BitterClip&connectorUrl=https%3A%2F%2Fapp.bitterclip.com%2Fmcp>
 
-That fallback connects the service but does not install these three skills.
+That fallback connects the service but does not install these four skills.
 
 ## Package boundary
 

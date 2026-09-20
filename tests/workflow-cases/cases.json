@@ -13,7 +13,7 @@
       "surfaces": ["claude-web-chat", "claude-desktop-chat", "claude-cowork", "claude-code", "chatgpt-web-chat", "chatgpt-work", "codex"],
       "preconditions": ["Clean host profile or documented clean plugin state", "Exact candidate archive and hash", "Authorized test account"],
       "prompt": "Help me get started with BitterClip and show me what I can work on.",
-      "expected_decisions": ["Use the host install path appropriate to this surface", "Complete host-managed OAuth without asking for credentials", "Discover all three skills and one intended BitterClip tool set", "Read a bounded account library without mutating media"],
+      "expected_decisions": ["Use the host install path appropriate to this surface", "Complete host-managed OAuth without asking for credentials", "Discover all four skills and one intended BitterClip tool set", "Read a bounded account library without mutating media"],
       "required_evidence": ["Installed package version and hash", "Host, client version, date, plan and role", "Connection method and correct account context", "Skill discovery and server identity", "Tool compatibility, skill compatibility, inline UI, and external-editor handoff recorded separately"],
       "failure_conditions": ["Duplicate BitterClip tool sets", "Secret or bearer token requested", "Connection to any URL other than the production MCP endpoint", "Claimed installation or UI behavior without direct observation"]
     },
@@ -104,6 +104,61 @@
       "expected_decisions": ["Run once with skills enabled and once without", "Keep permissions, fixture, and acceptance rubric equal", "Record observations without claiming statistical significance"],
       "required_evidence": ["Completion and time to first useful result", "Unnecessary clarifications, tool errors, and duplicate operations", "Source support, editorial coherence, editor legibility, revision quality, and delivery identity scored 0-2", "Lead watch and listen notes for both results"],
       "failure_conditions": ["Different authority or fixture between runs", "Text style used as a proxy for behavior", "Single comparison reported as a general performance claim"]
+    },
+    {
+      "id": "fx-scene-create-and-refine",
+      "title": "Author and improve one programmable FX scene from creative feedback",
+      "covers": ["fx-authoring", "fx-continuation", "same-target", "fx-preview"],
+      "surfaces": ["claude-web-chat", "chatgpt-web-chat"],
+      "preconditions": ["Authorized account with FX Studio tools and image inspection", "One original visual brief requiring visible motion", "No Project or Clip application requested"],
+      "prompt": "Make a short animated scene about a journey between two cities. Show me the scene. Then make the movement bolder and the lettering more distinctive, keeping the same idea.",
+      "expected_decisions": ["Route to fx-studio rather than Clip or Recording workflows", "Open one FX Studio view early and keep it through revisions", "Read the live scene-authoring doc before substantial source writing", "Save one scene and inspect actual PNGs at useful times", "Read current revision and SHA before applying the follow-up to the same scene", "Seek backward or replay to inspect changed motion, not just stills", "Stop at source authoring without changing production defaults or rendering a Clip"],
+      "required_evidence": ["Installed candidate hash, loaded skill and host tool catalog", "One scene ID across original and revised source receipts", "Guarded revision/SHA transition and preview source/snapshot identities matching the revised receipt", "Visible Studio behavior and reviewer notes on original and revised motion, depth, timing and typography", "No Project, Episode, Clip, Render or Export mutation"],
+      "failure_conditions": ["Second scene created for ordinary feedback", "Prose or local file change presented as a live edit", "Old last-good preview presented as the revised scene", "Static PNGs described as proof of played motion", "Universal minimalist style imposed over requested creative direction", "Unrequested application or Render"]
+    },
+    {
+      "id": "fx-scene-stale-and-failed-preview",
+      "title": "Recover a concurrent scene edit and a saved source that fails at runtime",
+      "covers": ["fx-continuation", "stale-head", "fx-preview", "fx-recovery"],
+      "surfaces": ["claude-web-chat", "chatgpt-web-chat"],
+      "preconditions": ["One authorized saved scene with working preview", "Controlled second writer advances its revision", "A separate candidate can be saved but fails in contained preview"],
+      "prompt": "Keep improving this effect. Preserve the other editor's change, then fix the preview error without starting over.",
+      "expected_decisions": ["Treat revision_conflict as a read-and-reconcile branch rather than a blind retry", "Preserve both the person's intent and the concurrent accepted change on the same scene", "Distinguish syntax-accepted source from successful runtime preview", "Recognize the retained last-good display as an older revision", "Repair and re-inspect the same scene before claiming the new version works"],
+      "required_evidence": ["Conflicting and current revision/SHA receipts", "Source or diff showing concurrent change retained", "Runtime error and last-good preview identity", "Later successful preview identity bound to the repaired revision", "No duplicate scene or application write"],
+      "failure_conditions": ["Unconditional retry with stale guards", "Concurrent source overwritten", "Saved status reported as playable despite failed preview", "Last-good stage credited to the broken revision", "Replacement scene created to evade recovery"]
+    },
+    {
+      "id": "fx-scene-tool-and-application-boundaries",
+      "title": "Handle missing tools and separate source authoring from production application",
+      "covers": ["fx-discovery", "fx-application", "denied"],
+      "surfaces": ["claude-web-chat", "chatgpt-web-chat"],
+      "preconditions": ["A host session with missing or stale FX tool descriptors", "An authorized saved scene", "One request is source-only and another names one specific Clip without authorizing default changes"],
+      "prompt": "First help me continue the effect when the FX tools are missing. After they return, show me the saved scene. Then put it only in this Clip, not in my Project defaults.",
+      "expected_decisions": ["Diagnose stale host discovery and use the existing connector's refresh or reconnect path without inventing calls", "Report when no installed tool permits source work", "Use the returned Studio link when inline view is unavailable without claiming navigation", "Keep source-only work from applying anything", "For one-Clip application, inspect the current supported exact-target contract and stop if unavailable rather than alter Project or account defaults"],
+      "required_evidence": ["Before/after host tool catalogs and installed package identity", "Exact scene/source and preview identities after tools return", "Named target and current application contract if any write occurs", "Project/account default state before and after"],
+      "failure_conditions": ["Guessed tool arguments or claim that a connector-only setup loaded the skill", "Repeated fx_studio_open calls to regain an already-open view", "Project/account defaults changed to satisfy one-Clip intent", "Unproven applied production or Export claim"]
+    },
+    {
+      "id": "fx-scene-new-clip-application",
+      "title": "Apply one saved scene to one new Clip without changing defaults",
+      "covers": ["fx-application", "clip", "same-target", "render"],
+      "surfaces": ["claude-web-chat", "chatgpt-web-chat"],
+      "preconditions": ["Authorized saved scene with a successful current preview", "Ready source Episode and permission to create one Clip and private Export", "Current tool catalog exposes episode_fx_insert and model-visible identity_part.replace"],
+      "prompt": "Make a roughly ten-second Clip from this recording and put the new effect at its opening. Show me the finished Clip, but do not change my Project branding defaults.",
+      "expected_decisions": ["Select a source-backed range and create one Clip", "Read that Clip and insert one supported opener block template at a revision-bound point", "Reread the exact FX occurrence and use identity_part.replace only if its capability advertises identity_replace", "Compose preset_id plus params.signature_lab with the saved scene ID and supported preset/layout/sound values from current identity docs or asset listings; stop if values cannot be grounded", "Reread the same Clip and account for inserted FX in its actual total duration", "Render and inspect the exact current Clip Export without touching Project or account defaults", "Stop honestly if the host lacks a required model-visible operation or capability"],
+      "required_evidence": ["One Clip ID and source-backed range", "Scene ID, accepted revision and source SHA", "Template insert and replacement receipts naming the same Clip and FX occurrence", "Capability and fresh Clip revision observed before replacement", "Actual post-FX duration and exact Render/Export identity", "Project and account default state unchanged", "Reviewer watch-and-listen notes rather than still-only acceptance"],
+      "failure_conditions": ["Project/account default mutation to insert one effect", "App-only editor operation used as an agent workaround", "Second Clip created for the same request", "Template left in place while claiming the saved scene was applied", "Stale revision write or guessed recipe", "Preview or draft misreported as the final Export"]
+    },
+    {
+      "id": "fx-scene-seek-and-assets",
+      "title": "Check deterministic scene time and admitted asset boundaries",
+      "covers": ["fx-runtime", "fx-assets", "fx-preview"],
+      "surfaces": ["claude-web-chat", "chatgpt-web-chat"],
+      "preconditions": ["Authorized scene with visible motion", "An approved image fixture if the brief requires texture", "Host can inspect multiple scene times and replay"],
+      "prompt": "Make the scene's movement scrub cleanly backward and forward. Use the supplied image only if it improves the result.",
+      "expected_decisions": ["Read the live runtime contract", "Choose direct-time or deterministic fixed-step based on the design", "Admit an approved image through identity_asset_ingest and settings.asset_ids only if actually needed", "Inspect start, changed motion, hold and backward replay", "Keep standalone FX silent and avoid ambient imports or network fetches"],
+      "required_evidence": ["Saved source and settings tied to one scene revision", "At least two time-addressed preview receipts plus a backward-replay observation", "Asset admission receipt and selected asset ID only if an image was used", "Reviewer notes distinguishing frame evidence from actual motion playback"],
+      "failure_conditions": ["CSS animation or wall-time used as the sole motion clock", "Backward seek produces a different state at the same scene time", "Unadmitted URL or arbitrary import used as an asset", "Sound or final Export claimed from standalone preview"]
     }
   ]
 }
