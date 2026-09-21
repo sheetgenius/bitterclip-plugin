@@ -4,9 +4,10 @@ BitterClip turns a Recording into a finished Clip from an ordinary creative
 request. The agent finds source-supported moments, makes an editable first cut,
 renders an exact private Export, and applies later feedback to that same Clip.
 
-This directory supports review of the generated Claude-native 0.2.0 local
-candidate. It is not a submission, approval, public listing, or installed-host
-claim. The available GitHub download remains 0.1.3.
+This directory supports review of the generated Claude-native 0.2.1 local
+recovery candidate. That candidate is not installed, submitted, approved, or
+publicly listed. The available GitHub download remains 0.1.3; a separate 0.2.0
+pilot was installed privately.
 
 ## Build and inspect
 
@@ -23,8 +24,8 @@ The builder writes:
 
 - native plugin: `dist/claude/plugins/bitterclip`
 - local marketplace: `dist/claude`
-- web archive: `dist/archives/bitterclip-0.2.0-claude-plugin.zip`
-- release identity: `dist/release-0.2.0.json`
+- web archive: `dist/archives/bitterclip-0.2.1-claude-plugin.zip`
+- release identity: `dist/release-0.2.1.json`
 
 The package contains four skills, one hosted OAuth MCP connection, an MIT
 license, and the BitterClip icon. It contains no credentials, customer media,
@@ -37,7 +38,7 @@ claude plugin marketplace add ./dist/claude
 claude plugin install bitterclip@bitterclip
 ```
 
-For Claude web, use the generated 0.2.0 Claude ZIP only when that local
+For Claude web, use the generated 0.2.1 Claude ZIP only when that local
 candidate has been explicitly approved for installation. Use only an account
 and Recording you are authorized to edit and render.
 
@@ -75,15 +76,22 @@ confirmation in BitterClip.
 
 ## Current boundary
 
-The privately installed Claude web candidate is 0.1.2. It showed all three
-skills and an existing connected BitterClip connector; an explicit get-started
-invocation ran. Claude Code 2.1.269 also passed an isolated native install.
+The earlier private 0.1.2 Claude web install showed three skills and an
+explicit get-started invocation; Claude Code 2.1.269 passed an isolated native
+install. On 2026-09-21, a separate private 0.2.0 Claude web install enabled all
+four named skills, preserving the existing connected BitterClip Custom
+connector without a new OAuth grant. FX, Clip, and review skills loaded
+automatically. After engineering coaching, a first exact private Export was
+ready and visibly played in the host card, but its opening failed editorial
+review. Ordinary feedback improved that same Clip and retained its earlier
+Export. The revised video visibly played in the host and downloaded as a
+complete 1080p MP4. Listening was unavailable; the agent used Program rather
+than exact-Export frame samples, and full editorial acceptance remains open.
 
-The local 0.2.0 candidate adds `fx-studio` as a fourth shared skill. It has not
-been installed in Claude web; the dated 0.1.2 evidence remains the only web
-installation evidence. The available GitHub release remains 0.1.3. There is no
-public Claude listing, and package validation alone does not prove OAuth,
-automatic skill selection, editorial quality, FX Studio behavior, or media review.
+The 0.2.1 recovery candidate has passed local validation but is not installed.
+The available GitHub release remains 0.1.3. There is no public Claude listing;
+installation and package validation alone do not prove editorial quality,
+download, audio review, or accepted FX Studio behavior.
 
 Before submission, the publisher still needs authorized reviewer account and
 media rights, intended destinations and regions, complete host acceptance, and

@@ -5,7 +5,7 @@ request. The agent chooses source-supported moments, makes an editable first
 cut, renders an exact private Export, and applies later feedback to that same
 Clip.
 
-This directory supports review of the local BitterClip 0.2.0 candidate in Agent
+This directory supports review of the local BitterClip 0.2.1 candidate in Agent
 Plugins 1.0 format. It is not a submission, approval, public listing, or claim
 that a fresh Codex install has passed. The available GitHub download remains
 0.1.3.
@@ -22,9 +22,9 @@ npm run verify
 
 Review:
 
-- archive: `dist/archives/bitterclip-0.2.0-agent-plugin.zip`
+- archive: `dist/archives/bitterclip-0.2.1-agent-plugin.zip`
 - unpacked source: `dist/portable/bitterclip`
-- release identity: `dist/release-0.2.0.json`
+- release identity: `dist/release-0.2.1.json`
 
 The portable root contains `plugin.json`, `mcp.json`, and four skills used by
 the Claude package. It connects to the hosted BitterClip service with
@@ -36,6 +36,11 @@ Codex and ChatGPT desktop. Follow the current
 [plugin packaging guide](https://developers.openai.com/plugins/build/plugins)
 and the detailed [local installation guide](../../docs/installation.md#codex-and-chatgpt-desktop).
 Do not present the ZIP as a universal drag-and-drop import or a public listing.
+
+Separately, the private 0.2.0 pilot installed four individual `.skill` ZIPs in
+ChatGPT web via **Skills → Create → Upload from your computer**. Each contained
+one unchanged `SKILL.md`; this did not import the portable package or add a new
+MCP connection. See the [pilot upload route](../../docs/installation.md#chatgpt-web-pilot-skill-upload).
 
 ## Listing copy
 
@@ -75,8 +80,13 @@ confirmation in BitterClip.
 
 ## Current boundary
 
-The local 0.2.0 portable candidate follows OpenAI's documented schema and adds
-the fourth `fx-studio` skill. It has not been installed in ChatGPT, Codex, or
-another host. The public 0.1.3 release remains the available download; a fresh
-Codex install and automatic skill-discovery journey remain unverified. There is
-no public ChatGPT or Codex listing.
+The local 0.2.1 portable candidate follows OpenAI's documented schema with
+four skills; it has not been host-installed. In the separate 0.2.0 ChatGPT web
+pilot, FX was explicitly invoked. Initial Clip application needed coaching;
+ordinary creative feedback then revised the same scene and Clip without it.
+Earlier and revised exact Exports remained available, and the revised video
+visibly played in first-party Outputs. Embedded review cards stayed stale or
+failed; download, audio, and host delivery remain unverified. This does
+not validate whole-package import or automatic discovery. The public 0.1.3
+release remains the available download; fresh Codex installation is unverified
+and there is no public ChatGPT or Codex listing.

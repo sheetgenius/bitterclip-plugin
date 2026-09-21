@@ -1,18 +1,27 @@
 # Changelog
 
+## 0.2.1 — local FX recovery candidate
+
+- Tightens the fourth skill's scene runtime, view targeting, guarded recovery,
+  and same-Clip scene rebinding guidance; adds anonymized continuation cases.
+- Keeps the shared package shape and hosted OAuth service. Local validation
+  passed, but this candidate is not host-installed or publicly released. The
+  public GitHub download remains 0.1.3; the private host pilot used 0.2.0.
+
 ## 0.2.0 — local FX Studio candidate
 
 - Adds `fx-studio`, a fourth shared skill for authoring and refining standalone
   programmable FX Studio scenes before any separately supported production use.
 - Keeps the existing three Clip skills, MIT licensing, and hosted OAuth endpoint.
-  This local candidate is not a new GitHub release or an installed-host claim.
+  Privately installed in Claude and as separate ChatGPT skills on 2026-09-21;
+  complete editorial acceptance remains open. Not a public GitHub release.
 
-## 0.1.3 — private local licensing candidate
+## 0.1.3 — public pilot package
 
 - Adds the MIT license for this plugin package, with the canonical root license
   mirrored in the portable package and both generated archives.
-- Maintains the same three shared skills, OAuth endpoint, and private local
-  distribution posture; it does not add a public repository claim.
+- Maintains the same three shared skills and OAuth endpoint. Published from the
+  separate sanitized public repository; not a vendor marketplace approval.
 
 ## 0.1.2 — private local consolidation candidate
 

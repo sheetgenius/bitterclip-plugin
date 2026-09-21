@@ -1,8 +1,9 @@
 # Install BitterClip for agents
 
-The BitterClip plugin combines four focused skills with the hosted BitterClip
-OAuth MCP service. Installation adds the package to your agent host; it does not
-install or run the BitterClip application locally.
+The public 0.1.3 plugin combines three focused skills with the hosted BitterClip
+OAuth MCP service; a local 0.2.1 candidate includes FX Studio as a fourth.
+Installation adds the package to your agent host; it does not run the BitterClip
+application locally.
 
 ## Before you start
 
@@ -43,16 +44,16 @@ npm run verify
 ```
 
 The public default branch currently produces the released three-skill 0.1.3
-package. The four-skill 0.2.0 FX Studio candidate is not a GitHub download or
+package. The four-skill 0.2.1 recovery candidate is not a GitHub download or
 public source-build path; use it only from an explicitly approved local review
-checkout.
+checkout. The privately installed pilot is 0.2.0, not this candidate.
 
-For an approved local 0.2.0 candidate checkout, the final command writes:
+For an approved local 0.2.1 candidate checkout, the final command writes:
 
 | Output | Use |
 | --- | --- |
-| `dist/archives/bitterclip-0.2.0-claude-plugin.zip` | Claude web upload |
-| `dist/archives/bitterclip-0.2.0-agent-plugin.zip` | Portable Agent Plugins archive |
+| `dist/archives/bitterclip-0.2.1-claude-plugin.zip` | Claude web upload |
+| `dist/archives/bitterclip-0.2.1-agent-plugin.zip` | Portable Agent Plugins archive |
 | `dist/claude` | Claude Code local marketplace |
 | `dist/portable/bitterclip` | Unpacked portable package |
 
@@ -64,9 +65,9 @@ completes.
 1. Open <https://claude.ai/customize/plugins>.
 2. Choose **Add plugin**, then **Upload plugin**.
 3. Select the downloaded `bitterclip-0.1.3-claude-plugin.zip`, or an explicitly
-   approved locally built 0.2.0 candidate in `dist/archives/`.
+   approved locally built 0.2.1 candidate in `dist/archives/`.
 4. Confirm the skills match the installed version: released 0.1.3 has
-   `get-started`, `make-a-clip`, and `review-and-export`; a four-skill 0.2.0
+   `get-started`, `make-a-clip`, and `review-and-export`; a four-skill 0.2.1
    candidate also has `fx-studio`.
 5. Start a new conversation and ask: “Use BitterClip to help me make my first
    clip.”
@@ -103,7 +104,7 @@ for the commands supported by your installed CLI before changing configuration.
 
 ## Codex and ChatGPT desktop
 
-BitterClip 0.2.0 uses the portable Agent Plugins layout documented by OpenAI:
+BitterClip 0.2.1 uses the portable Agent Plugins layout documented by OpenAI:
 root `plugin.json`, root `mcp.json`, and four folders under `skills/`. OpenAI's
 local installation route uses a repo or personal marketplace, then the Plugins
 Directory in the ChatGPT desktop app.
@@ -162,6 +163,21 @@ This portable route is documented by OpenAI, but BitterClip 0.1.3 has not yet
 completed a fresh Codex install and automatic skill-discovery journey. The ZIP
 is not a claim of a universal drag-and-drop import flow or a public listing.
 
+## ChatGPT web: pilot skill upload
+
+The private 0.2.0 pilot installed four separate single-skill `.skill` ZIPs at
+**Plugins → Skills → Create → Upload from your computer**. Each contained one
+unchanged `SKILL.md`, and ChatGPT showed all four as Installed. These are not
+the public 0.1.3 Agent Plugins archive or a whole-plugin import. They are not
+offered as public downloads here; use only reviewed files from an approved
+checkout. See [OpenAI's skill guidance](https://developers.openai.com/plugins/build/skills)
+for the skill/package distinction.
+
+Skill upload does not add the BitterClip MCP connection. The pilot reused its
+existing production connection without a new OAuth grant. Confirm the intended
+connection separately; Installed status alone does not prove invocation or a
+finished video. The 0.2.1 recovery candidate has not been installed in a host.
+
 ## Reconnect without losing the edit
 
 If BitterClip asks you to sign in again:
@@ -183,7 +199,7 @@ the package is usually unnecessary.
 
 - Confirm you installed the plugin package, not only the MCP connector.
 - In Claude web, verify the skill count matches the installed version: three
-  for released 0.1.3, or four including `fx-studio` for an approved 0.2.0
+  for released 0.1.3, or four including `fx-studio` for an approved 0.2.1
   candidate.
 - In local hosts, restart the app and begin a new conversation after install.
 - Rebuild with `npm run verify` if the expected archive or marketplace is absent.
@@ -221,7 +237,7 @@ email [hello@bitterclip.com](mailto:hello@bitterclip.com).
 
 ## Support status
 
-Status recorded 2026-09-12:
+Evidence through 2026-09-21:
 
 - Claude web privately installed 0.1.2 with all three skills and an existing
   connected BitterClip connector. An explicit get-started invocation was seen.
@@ -229,19 +245,32 @@ Status recorded 2026-09-12:
 - A direct-file agent run using the same 0.1.2 skills made a first cut, revised
   the same Clip from ordinary feedback, and produced two downloadable MP4s
   without procedural coaching. Audio acceptance was not available.
-- The new local 0.1.3 candidate keeps those three skills unchanged while adding
-  repository documentation, license, and metadata. It has not been installed
-  over the private 0.1.2 candidate.
-- The local 0.2.0 candidate adds `fx-studio` as a fourth shared skill for
-  source-only FX Studio authoring. It has not been installed in Claude web,
-  ChatGPT web, Claude Code, Codex, or another host; its browser acceptance is
-  pending lead-recorded proof. The public 0.1.3 release remains the available
-  download.
-- Browser observation recorded 2026-09-20: ChatGPT web **Plugins → Create app**
-  offered an MCP URL route, while **Skills → Create → Upload from your computer**
-  offered `.zip`, `.skill`, or `SKILL.md` uploads with a third-party warning.
-  This is an observed UI route only, not an approved action, completed install,
-  or proof that the four skills load in ChatGPT web.
+- The public 0.1.3 release kept those three skills unchanged while adding
+  repository documentation, license, and metadata. It remains the available
+  GitHub download, not a vendor marketplace listing.
+- A private 0.2.0 Claude web install enabled all four named skills with the
+  existing connected BitterClip Custom connector and no new OAuth grant. FX,
+  Clip, and review skills loaded automatically. After coaching around host
+  friction, scene and scoped-Clip work advanced. A first exact private Export
+  was ready and visibly played in the host card, but its opening failed
+  editorial review. Ordinary feedback then changed the same Clip to a complete
+  thought and retained the first Export. The revised video visibly played in
+  the host and downloaded as a complete 1080p MP4 with an audio track. Listening
+  was unavailable, and the agent used Program rather than exact-Export samples;
+  neither its narration nor the download establishes full editorial acceptance.
+- ChatGPT web installed four separate 0.2.0 skills; FX was explicitly invoked.
+  The initial application needed coaching around missing values. Ordinary
+  creative feedback then advanced the same scene and Clip without further
+  coaching. Earlier and revised exact Exports remained independently available;
+  the revised video visibly played in first-party Outputs, including the
+  requested bridge and brighter, earlier title. Embedded review cards remained
+  stale or failed, and the host's claimed review opening did not establish
+  visible delivery. Browser Download was blocked; a separate download action
+  returned no receipt or completed file. Download and audio remain unverified.
+- The local 0.2.1 recovery candidate tightens FX authoring, target, and
+  continuation guidance. It passed local package checks but has not been
+  installed in either host. A separate Rails discoverability fix is local and
+  not deployed; do not infer that the missing values are fixed in production.
 - Codex packaging is documented, but a fresh installed journey and automatic
   skill discovery remain unverified. No public Claude, ChatGPT, or Codex listing
   is claimed.

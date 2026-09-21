@@ -55,8 +55,8 @@ npm run verify
 ```
 
 The public default branch currently builds the released three-skill 0.1.3
-package. The four-skill 0.2.0 FX Studio work is a local review candidate, not a
-public source-build or GitHub download path.
+package. This four-skill 0.2.1 recovery work is a local candidate, not a public
+source-build or GitHub download path; the privately installed pilot is 0.2.0.
 
 For Claude Code, install the generated local marketplace:
 
@@ -67,7 +67,7 @@ claude plugin install bitterclip@bitterclip
 
 You can also upload a locally built Claude archive to Claude web when that
 candidate has been explicitly approved for installation. The available GitHub
-release remains 0.1.3; the 0.2.0 archive is a local candidate, not a download.
+release remains 0.1.3; the 0.2.1 archive is a local candidate, not a download.
 
 For Codex, use the unpacked portable package at `dist/portable/bitterclip`
 through the documented local marketplace route. The Agent Plugins ZIP is a
@@ -93,7 +93,7 @@ You provide the intent and the creative correction. The agent handles source
 search, media inspection, timing evidence, edit sequencing, rendering, and
 recovery. You should not need to supply timestamps or choreograph tools.
 
-The local 0.2.0 candidate includes four focused skills:
+The local 0.2.1 candidate includes four focused skills:
 
 - [`get-started`](plugin/skills/get-started/SKILL.md) finds a ready Episode or
   helps continue a first upload.
@@ -132,18 +132,18 @@ current plans in the [homepage pricing section](https://bitterclip.com/#pricing)
 
 ## Host support
 
-Current as of 2026-09-12:
+Observed through 2026-09-21:
 
 | Host | Package path | Current evidence |
 | --- | --- | --- |
-| Claude web | Generated Claude ZIP | Private 0.1.2 install showed all three skills and the existing connected BitterClip connector; an explicit get-started invocation ran. |
+| Claude web | Generated Claude ZIP | Private 0.2.0 enabled four skills with no new OAuth grant; FX, Clip, and review skills loaded automatically. The baseline needed engineering coaching. Ordinary feedback then improved the same Clip, retained its first Export, and produced a revised video that visibly played and downloaded. Listening and full editorial acceptance remain open. |
 | Claude Code | Generated local marketplace | Isolated install checked with Claude Code 2.1.269. |
 | Codex / ChatGPT desktop | Portable Agent Plugins package through a local or repo marketplace | The package follows the documented portable schema; a fresh BitterClip install and automatic skill-discovery journey have not yet been run. |
-| ChatGPT connector | Hosted MCP connection | Connector use is separate from installing the three packaged skills; no public BitterClip plugin listing is claimed. |
+| ChatGPT web | Four separate 0.2.0 skill ZIPs plus existing hosted MCP connection | All four skills installed; FX was explicitly invoked. The first Export needed engineering coaching; ordinary feedback then revised the same scene and Clip without further coaching. Both exact Exports remained available, and the revised video visibly played in first-party Outputs. Host review cards remained stale, while download, audio, and host delivery were unverified. This was not a whole-plugin import. |
 
-The local 0.2.0 candidate adds a fourth FX Studio skill. It has not been
-installed in a host; the dated 0.1.2 host evidence above remains unchanged. The
-available GitHub release remains 0.1.3. See
+The uninstalled local 0.2.1 candidate tightens FX Studio recovery guidance;
+its validation is not host acceptance. The available GitHub release remains
+0.1.3, with no public vendor listing. See
 [Installation](docs/installation.md#support-status) for the exact boundary.
 
 ## Build and verify
@@ -157,10 +157,10 @@ npm test
 npm run verify
 ```
 
-For the local 0.2.0 candidate, `npm run verify` builds:
+For the local 0.2.1 candidate, `npm run verify` builds:
 
-- `dist/archives/bitterclip-0.2.0-claude-plugin.zip`
-- `dist/archives/bitterclip-0.2.0-agent-plugin.zip`
+- `dist/archives/bitterclip-0.2.1-claude-plugin.zip`
+- `dist/archives/bitterclip-0.2.1-agent-plugin.zip`
 - `dist/claude`, the local Claude marketplace
 - `dist/portable/bitterclip`, the unpacked portable package
 
