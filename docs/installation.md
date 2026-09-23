@@ -188,9 +188,9 @@ If BitterClip asks you to sign in again:
 4. Confirm that a correction updates the same Clip rather than creating a
    duplicate.
 
-BitterClip access tokens currently expire after 30 days and the service does
-not advertise a refresh-token grant. Reauthorization is expected; reinstalling
-the package is usually unnecessary.
+BitterClip connections renew in the background with rotating refresh tokens, so
+signing in again should be rare. If a host still asks, reconnect the existing
+connection; reinstalling the package is usually unnecessary.
 
 ## Troubleshooting
 
