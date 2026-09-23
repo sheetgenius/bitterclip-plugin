@@ -51,7 +51,7 @@ have not completed host acceptance. The final command writes:
 | --- | --- |
 | `dist/archives/bitterclip-0.2.1-claude-plugin.zip` | Claude web upload |
 | `dist/archives/bitterclip-0.2.1-agent-plugin.zip` | Portable Agent Plugins archive |
-| `dist/claude` | Claude Code local marketplace |
+| `dist/claude` | Claude Code marketplace from a local build (the repository root serves the same generated package) |
 | `dist/portable/bitterclip` | Unpacked portable package |
 
 For a local build, do not install an archive produced before `npm run verify`
@@ -85,82 +85,42 @@ four packaged skills from the ZIP.
 
 ## Claude Code
 
-After building, register the generated marketplace and install its one plugin:
+Install from this repository's marketplace:
 
 ```bash
-claude plugin marketplace add ./dist/claude
+claude plugin marketplace add sheetgenius/bitterclip-plugin
 claude plugin install bitterclip@bitterclip
 ```
 
-Start a new Claude Code session, invoke BitterClip's `get-started` skill, and
-complete OAuth when prompted. Native validation alone does not establish that
-the connection or skills work in a model conversation.
+Start a new Claude Code session, run `/mcp`, choose the BitterClip server and
+authenticate, then invoke BitterClip's `get-started` skill. Native validation
+alone does not establish that the connection or skills work in a model
+conversation.
 
-If you rebuild a newer version, use the Claude CLI's documented update flow, or
-uninstall and reinstall `bitterclip@bitterclip`. Check `claude plugin --help`
-for the commands supported by your installed CLI before changing configuration.
+To update, run `claude plugin marketplace update bitterclip` and
+`claude plugin update bitterclip@bitterclip`. Check `claude plugin --help` for
+the commands your installed CLI supports before changing configuration.
 
 ## Codex and ChatGPT desktop
 
-BitterClip 0.2.1 uses the portable Agent Plugins layout documented by OpenAI:
-root `plugin.json`, root `mcp.json`, and four folders under `skills/`. OpenAI's
-local installation route uses a repo or personal marketplace, then the Plugins
-Directory in the ChatGPT desktop app.
-
-Use the unpacked portable ZIP, or the generated folder
-`dist/portable/bitterclip` from a source build. Place a copy inside
-your local marketplace root and add an entry whose `source.path` begins with
-`./`, is relative to that root, and stays inside it. For example:
-
-```text
-my-bitterclip-marketplace/
-├── .agents/
-│   └── plugins/
-│       └── marketplace.json
-└── plugins/
-    └── bitterclip/
-        ├── plugin.json
-        ├── mcp.json
-        └── skills/
-```
-
-In `.agents/plugins/marketplace.json`, use this catalog. Its plugin path is
-relative to `my-bitterclip-marketplace`, the marketplace root, not to the
-directory containing the catalog:
-
-```json
-{
-  "name": "bitterclip-local",
-  "interface": { "displayName": "BitterClip local" },
-  "plugins": [
-    {
-      "name": "bitterclip",
-      "source": { "source": "local", "path": "./plugins/bitterclip" },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
-    }
-  ]
-}
-```
-
-Register that marketplace root:
+Codex (the CLI and the ChatGPT desktop app share configuration) installs from
+this repository's marketplace at `.agents/plugins/marketplace.json`:
 
 ```bash
-codex plugin marketplace add ./my-bitterclip-marketplace
+codex plugin marketplace add https://github.com/sheetgenius/bitterclip-plugin.git --ref main
+codex plugin add bitterclip@bitterclip
+codex mcp login bitterclip
 ```
 
-Restart the ChatGPT desktop app, open the Plugins Directory, choose **BitterClip
-local**, install BitterClip, and test it in a new chat. See OpenAI's current
+The last command opens the browser to sign in to BitterClip. Start a new task
+to load the skills. See OpenAI's current
 [plugin packaging documentation](https://developers.openai.com/plugins/build/plugins)
 for marketplace locations and managed-workspace options.
 
-This portable route is documented by OpenAI, but the BitterClip 0.2.1 package
-has not yet completed a fresh Codex install and automatic skill-discovery
-journey. The ZIP is not a claim of a universal drag-and-drop import flow or a
-public listing.
+As of 2026-09-24, adding the marketplace and installing the plugin succeed with
+Codex CLI 0.156.1, and Codex registers the `bitterclip` server with OAuth. A
+signed-in skill conversation in the ChatGPT desktop app has not yet been
+recorded.
 
 ## ChatGPT web: pilot skill upload
 

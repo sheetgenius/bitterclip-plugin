@@ -16,7 +16,13 @@ npm run verify
 
 `npm run verify` validates the portable package, builds the Claude adapter, and
 checks reproducible archives. If the Claude CLI is present, it also runs native
-Claude validation.
+Claude validation. It also fails if the installable marketplaces at the
+repository root have drifted from the source.
+
+The root `.claude-plugin/`, `.agents/plugins/` and `plugins/bitterclip/` are the
+marketplaces people install from GitHub. They are generated, never edited: after
+changing `plugin/` or `packaging/`, run `npm run marketplace` and commit the
+result.
 
 ## Make a focused change
 

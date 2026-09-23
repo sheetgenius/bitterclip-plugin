@@ -7,8 +7,9 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build-packages.mjs",
-    "verify": "node scripts/verify-packages.mjs",
-    "test": "node --test tests/package-compatibility/*.test.mjs tests/workflow-cases/*.test.mjs"
+    "verify": "node scripts/verify-packages.mjs && node scripts/sync-marketplace.mjs --check",
+    "test": "node --test tests/package-compatibility/*.test.mjs tests/workflow-cases/*.test.mjs",
+    "marketplace": "node scripts/sync-marketplace.mjs"
   },
   "devDependencies": {
     "ajv": "^8.20.0"

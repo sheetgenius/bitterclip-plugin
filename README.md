@@ -37,21 +37,41 @@ You need a BitterClip account with an uploaded, ready Recording and a host that
 supports one of the install routes below. This package does not include a free
 hosted-service entitlement.
 
+Using Claude or ChatGPT in the browser? You only need the connection:
+[bitterclip.com/connect](https://bitterclip.com/connect) adds it in one click.
+This package adds editing skills on top of it.
+
 Choose the shortest route for your host:
 
-- **Claude web:** [download the v0.1.3 Claude ZIP](https://github.com/sheetgenius/bitterclip-plugin/releases/download/v0.1.3/bitterclip-0.1.3-claude-plugin.zip)
-  and upload it at **Customize → Plugins → Add plugin → Upload plugin**. This is
-  the only published download and includes three Clip-making skills.
-- **Claude Code, Codex, or a local marketplace:** build the current source
-  checkout. It produces the four-skill 0.2.1 packages described below.
+- **Claude Code:** install from this repository's marketplace:
 
-The [v0.1.3 GitHub pilot prerelease](https://github.com/sheetgenius/bitterclip-plugin/releases/tag/v0.1.3)
+  ```bash
+  claude plugin marketplace add sheetgenius/bitterclip-plugin
+  claude plugin install bitterclip@bitterclip
+  ```
+
+  Then run `/mcp`, choose the BitterClip server, and authenticate.
+- **Codex (CLI or the ChatGPT desktop app):**
+
+  ```bash
+  codex plugin marketplace add https://github.com/sheetgenius/bitterclip-plugin.git --ref main
+  codex plugin add bitterclip@bitterclip
+  codex mcp login bitterclip
+  ```
+
+- **Claude web:** [download the v0.1.3 Claude ZIP](https://github.com/sheetgenius/bitterclip-plugin/releases/download/v0.1.3/bitterclip-0.1.3-claude-plugin.zip)
+  and upload it at **Customize → Plugins → Add plugin → Upload plugin**. It
+  includes three Clip-making skills.
+
+Both marketplaces serve the four-skill 0.2.1 package from `plugins/bitterclip/`,
+which is generated from `plugin/` (see [Contributing](CONTRIBUTING.md)). The
+[v0.1.3 GitHub pilot prerelease](https://github.com/sheetgenius/bitterclip-plugin/releases/tag/v0.1.3)
 also includes a portable Agent Plugins ZIP and its release identity record.
-There is no v0.2.1 GitHub release or public vendor listing.
+There is no public vendor listing yet.
 
 ### Build from source
 
-For Claude Code or a local portable marketplace, start with the source checkout:
+To build and verify the packages yourself, start with the source checkout:
 
 ```bash
 git clone https://github.com/sheetgenius/bitterclip-plugin.git
