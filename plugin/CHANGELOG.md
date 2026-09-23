@@ -1,12 +1,13 @@
 # Changelog
 
-## 0.2.1 — local FX recovery candidate
+## 0.2.1 — FX recovery guidance
 
 - Tightens the fourth skill's scene runtime, view targeting, guarded recovery,
   and same-Clip scene rebinding guidance; adds anonymized continuation cases.
-- Keeps the shared package shape and hosted OAuth service. Local validation
-  passed, but this candidate is not host-installed or publicly released. The
-  public GitHub download remains 0.1.3; the private host pilot used 0.2.0.
+- Keeps the shared package shape and hosted OAuth service. The current source
+  checkout builds 0.2.1 and local validation passed, but the package is not
+  host-installed or published as a GitHub release. The public GitHub download
+  remains v0.1.3; the private host pilot used 0.2.0.
 
 ## 0.2.0 — local FX Studio candidate
 

@@ -4,9 +4,9 @@ BitterClip turns a Recording into a finished Clip from an ordinary creative
 request. The agent finds source-supported moments, makes an editable first cut,
 renders an exact private Export, and applies later feedback to that same Clip.
 
-This directory supports review of the generated Claude-native 0.2.1 local
-recovery candidate. That candidate is not installed, submitted, approved, or
-publicly listed. The available GitHub download remains 0.1.3; a separate 0.2.0
+This directory builds the Claude-native 0.2.1 package from the current source
+checkout. Version 0.2.1 is not installed, submitted, approved, released, or
+publicly listed. The available GitHub download remains v0.1.3; a separate 0.2.0
 pilot was installed privately.
 
 ## Build and inspect
@@ -38,9 +38,9 @@ claude plugin marketplace add ./dist/claude
 claude plugin install bitterclip@bitterclip
 ```
 
-For Claude web, use the generated 0.2.1 Claude ZIP only when that local
-candidate has been explicitly approved for installation. Use only an account
-and Recording you are authorized to edit and render.
+For Claude web, use the generated 0.2.1 Claude ZIP only with an account and
+Recording you are authorized to edit and render. Building the package does not
+establish that it works in the host.
 
 After an approved installation, start a new conversation and request a real
 outcome. Confirm that all four skills are present, OAuth connects to the
@@ -88,8 +88,8 @@ Export. The revised video visibly played in the host and downloaded as a
 complete 1080p MP4. Listening was unavailable; the agent used Program rather
 than exact-Export frame samples, and full editorial acceptance remains open.
 
-The 0.2.1 recovery candidate has passed local validation but is not installed.
-The available GitHub release remains 0.1.3. There is no public Claude listing;
+The 0.2.1 source package has passed local validation but is not installed. The
+available GitHub release remains v0.1.3. There is no public Claude listing;
 installation and package validation alone do not prove editorial quality,
 download, audio review, or accepted FX Studio behavior.
 

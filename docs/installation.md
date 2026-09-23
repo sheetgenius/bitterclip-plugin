@@ -1,9 +1,9 @@
 # Install BitterClip for agents
 
-The public 0.1.3 plugin combines three focused skills with the hosted BitterClip
-OAuth MCP service; a local 0.2.1 candidate includes FX Studio as a fourth.
-Installation adds the package to your agent host; it does not run the BitterClip
-application locally.
+The current source checkout combines four focused skills with the hosted
+BitterClip OAuth MCP service. The latest published GitHub download is still the
+three-skill v0.1.3 pilot. Installation adds a package to your agent host; it
+does not run the BitterClip application locally.
 
 ## Before you start
 
@@ -43,12 +43,9 @@ npm test
 npm run verify
 ```
 
-The public default branch currently produces the released three-skill 0.1.3
-package. The four-skill 0.2.1 recovery candidate is not a GitHub download or
-public source-build path; use it only from an explicitly approved local review
-checkout. The privately installed pilot is 0.2.0, not this candidate.
-
-For an approved local 0.2.1 candidate checkout, the final command writes:
+The current source checkout produces the four-skill 0.2.1 packages. Version
+0.2.1 is not a GitHub release or vendor listing, and its generated packages
+have not completed host acceptance. The final command writes:
 
 | Output | Use |
 | --- | --- |
@@ -64,11 +61,12 @@ completes.
 
 1. Open <https://claude.ai/customize/plugins>.
 2. Choose **Add plugin**, then **Upload plugin**.
-3. Select the downloaded `bitterclip-0.1.3-claude-plugin.zip`, or an explicitly
-   approved locally built 0.2.1 candidate in `dist/archives/`.
+3. Select the downloaded `bitterclip-0.1.3-claude-plugin.zip`, or the locally
+   built `bitterclip-0.2.1-claude-plugin.zip` in `dist/archives/` when you are
+   authorized to connect that account and media.
 4. Confirm the skills match the installed version: released 0.1.3 has
-   `get-started`, `make-a-clip`, and `review-and-export`; a four-skill 0.2.1
-   candidate also has `fx-studio`.
+   `get-started`, `make-a-clip`, and `review-and-export`; the four-skill 0.2.1
+   source package also has `fx-studio`.
 5. Start a new conversation and ask: “Use BitterClip to help me make my first
    clip.”
 6. Complete BitterClip sign-in if Claude asks you to connect.
@@ -159,9 +157,10 @@ local**, install BitterClip, and test it in a new chat. See OpenAI's current
 [plugin packaging documentation](https://developers.openai.com/plugins/build/plugins)
 for marketplace locations and managed-workspace options.
 
-This portable route is documented by OpenAI, but BitterClip 0.1.3 has not yet
-completed a fresh Codex install and automatic skill-discovery journey. The ZIP
-is not a claim of a universal drag-and-drop import flow or a public listing.
+This portable route is documented by OpenAI, but the BitterClip 0.2.1 package
+has not yet completed a fresh Codex install and automatic skill-discovery
+journey. The ZIP is not a claim of a universal drag-and-drop import flow or a
+public listing.
 
 ## ChatGPT web: pilot skill upload
 
@@ -176,7 +175,7 @@ for the skill/package distinction.
 Skill upload does not add the BitterClip MCP connection. The pilot reused its
 existing production connection without a new OAuth grant. Confirm the intended
 connection separately; Installed status alone does not prove invocation or a
-finished video. The 0.2.1 recovery candidate has not been installed in a host.
+finished video. The 0.2.1 package has not been installed in a host.
 
 ## Reconnect without losing the edit
 
@@ -199,8 +198,8 @@ the package is usually unnecessary.
 
 - Confirm you installed the plugin package, not only the MCP connector.
 - In Claude web, verify the skill count matches the installed version: three
-  for released 0.1.3, or four including `fx-studio` for an approved 0.2.1
-  candidate.
+  for released 0.1.3, or four including `fx-studio` for a source-built 0.2.1
+  package.
 - In local hosts, restart the app and begin a new conversation after install.
 - Rebuild with `npm run verify` if the expected archive or marketplace is absent.
 
@@ -267,10 +266,10 @@ Evidence through 2026-09-21:
   stale or failed, and the host's claimed review opening did not establish
   visible delivery. Browser Download was blocked; a separate download action
   returned no receipt or completed file. Download and audio remain unverified.
-- The local 0.2.1 recovery candidate tightens FX authoring, target, and
-  continuation guidance. It passed local package checks but has not been
-  installed in either host. A separate Rails discoverability fix is local and
-  not deployed; do not infer that the missing values are fixed in production.
+- The 0.2.1 source package tightens FX authoring, target, and continuation
+  guidance. It passed local package checks but has not been installed in either
+  host. A separate Rails discoverability fix is local and not deployed; do not
+  infer that the missing values are fixed in production.
 - Codex packaging is documented, but a fresh installed journey and automatic
   skill discovery remain unverified. No public Claude, ChatGPT, or Codex listing
   is claimed.

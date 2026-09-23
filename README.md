@@ -31,16 +31,23 @@ Then keep talking:
 That feedback revises the same Clip. The earlier Export stays intact, and the
 new Download belongs to the new revision.
 
-## Install the pilot plugin
+## Install BitterClip
 
 You need a BitterClip account with an uploaded, ready Recording and a host that
 supports one of the install routes below. This package does not include a free
 hosted-service entitlement.
 
-For Claude web, [download the v0.1.3 Claude ZIP](https://github.com/sheetgenius/bitterclip-plugin/releases/download/v0.1.3/bitterclip-0.1.3-claude-plugin.zip)
-and upload it at **Customize → Plugins → Add plugin → Upload plugin**. No source
-build is needed. The [GitHub pilot prerelease](https://github.com/sheetgenius/bitterclip-plugin/releases/tag/v0.1.3)
-also includes the portable Agent Plugins ZIP and release identity record.
+Choose the shortest route for your host:
+
+- **Claude web:** [download the v0.1.3 Claude ZIP](https://github.com/sheetgenius/bitterclip-plugin/releases/download/v0.1.3/bitterclip-0.1.3-claude-plugin.zip)
+  and upload it at **Customize → Plugins → Add plugin → Upload plugin**. This is
+  the only published download and includes three Clip-making skills.
+- **Claude Code, Codex, or a local marketplace:** build the current source
+  checkout. It produces the four-skill 0.2.1 packages described below.
+
+The [v0.1.3 GitHub pilot prerelease](https://github.com/sheetgenius/bitterclip-plugin/releases/tag/v0.1.3)
+also includes a portable Agent Plugins ZIP and its release identity record.
+There is no v0.2.1 GitHub release or public vendor listing.
 
 ### Build from source
 
@@ -54,9 +61,8 @@ npm test
 npm run verify
 ```
 
-The public default branch currently builds the released three-skill 0.1.3
-package. This four-skill 0.2.1 recovery work is a local candidate, not a public
-source-build or GitHub download path; the privately installed pilot is 0.2.0.
+The current source checkout builds the four-skill 0.2.1 package. These checks
+verify package structure and reproducibility; they do not install it in a host.
 
 For Claude Code, install the generated local marketplace:
 
@@ -65,9 +71,10 @@ claude plugin marketplace add ./dist/claude
 claude plugin install bitterclip@bitterclip
 ```
 
-You can also upload a locally built Claude archive to Claude web when that
-candidate has been explicitly approved for installation. The available GitHub
-release remains 0.1.3; the 0.2.1 archive is a local candidate, not a download.
+You can also upload the locally built 0.2.1 Claude archive to Claude web when
+you are authorized to connect that account and media. That route has not yet
+completed package-level host acceptance. If you want a published download
+instead, use v0.1.3 above.
 
 For Codex, use the unpacked portable package at `dist/portable/bitterclip`
 through the documented local marketplace route. The Agent Plugins ZIP is a
@@ -93,7 +100,7 @@ You provide the intent and the creative correction. The agent handles source
 search, media inspection, timing evidence, edit sequencing, rendering, and
 recovery. You should not need to supply timestamps or choreograph tools.
 
-The local 0.2.1 candidate includes four focused skills:
+The 0.2.1 source package includes four focused skills:
 
 - [`get-started`](plugin/skills/get-started/SKILL.md) finds a ready Episode or
   helps continue a first upload.
@@ -141,9 +148,9 @@ Observed through 2026-09-21:
 | Codex / ChatGPT desktop | Portable Agent Plugins package through a local or repo marketplace | The package follows the documented portable schema; a fresh BitterClip install and automatic skill-discovery journey have not yet been run. |
 | ChatGPT web | Four separate 0.2.0 skill ZIPs plus existing hosted MCP connection | All four skills installed; FX was explicitly invoked. The first Export needed engineering coaching; ordinary feedback then revised the same scene and Clip without further coaching. Both exact Exports remained available, and the revised video visibly played in first-party Outputs. Host review cards remained stale, while download, audio, and host delivery were unverified. This was not a whole-plugin import. |
 
-The uninstalled local 0.2.1 candidate tightens FX Studio recovery guidance;
-its validation is not host acceptance. The available GitHub release remains
-0.1.3, with no public vendor listing. See
+The 0.2.1 source package tightens FX Studio recovery guidance, but it has not
+completed package-level host acceptance. The available GitHub release remains
+v0.1.3, with no public vendor listing. See
 [Installation](docs/installation.md#support-status) for the exact boundary.
 
 ## Build and verify
@@ -157,7 +164,7 @@ npm test
 npm run verify
 ```
 
-For the local 0.2.1 candidate, `npm run verify` builds:
+For the current 0.2.1 source checkout, `npm run verify` builds:
 
 - `dist/archives/bitterclip-0.2.1-claude-plugin.zip`
 - `dist/archives/bitterclip-0.2.1-agent-plugin.zip`

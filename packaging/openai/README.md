@@ -5,10 +5,10 @@ request. The agent chooses source-supported moments, makes an editable first
 cut, renders an exact private Export, and applies later feedback to that same
 Clip.
 
-This directory supports review of the local BitterClip 0.2.1 candidate in Agent
-Plugins 1.0 format. It is not a submission, approval, public listing, or claim
-that a fresh Codex install has passed. The available GitHub download remains
-0.1.3.
+This directory builds BitterClip 0.2.1 from the current source checkout in
+Agent Plugins 1.0 format. It is not a release, submission, approval, public
+listing, or claim that a fresh Codex install has passed. The available GitHub
+download remains v0.1.3.
 
 ## Package
 
@@ -80,13 +80,13 @@ confirmation in BitterClip.
 
 ## Current boundary
 
-The local 0.2.1 portable candidate follows OpenAI's documented schema with
-four skills; it has not been host-installed. In the separate 0.2.0 ChatGPT web
+The 0.2.1 portable source package follows OpenAI's documented schema with four
+skills; it has not been host-installed. In the separate 0.2.0 ChatGPT web
 pilot, FX was explicitly invoked. Initial Clip application needed coaching;
 ordinary creative feedback then revised the same scene and Clip without it.
 Earlier and revised exact Exports remained available, and the revised video
 visibly played in first-party Outputs. Embedded review cards stayed stale or
 failed; download, audio, and host delivery remain unverified. This does
-not validate whole-package import or automatic discovery. The public 0.1.3
-release remains the available download; fresh Codex installation is unverified
+not validate whole-package import or automatic discovery. The public v0.1.3
+release remains the available download; fresh Codex installation is unverified,
 and there is no public ChatGPT or Codex listing.
