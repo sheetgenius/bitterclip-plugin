@@ -135,7 +135,9 @@ for the skill/package distinction.
 Skill upload does not add the BitterClip MCP connection. The pilot reused its
 existing production connection without a new OAuth grant. Confirm the intended
 connection separately; Installed status alone does not prove invocation or a
-finished video. The 0.2.1 package has not been installed in a host.
+finished video. The 0.2.1 Claude and ChatGPT web packages have not completed
+package-level host acceptance. BitterClip's embedded Agent receives the four
+source skills through Rails, without installing a marketplace package.
 
 ## Reconnect without losing the edit
 
@@ -227,9 +229,10 @@ Evidence through 2026-09-21:
   visible delivery. Browser Download was blocked; a separate download action
   returned no receipt or completed file. Download and audio remain unverified.
 - The 0.2.1 source package tightens FX authoring, target, and continuation
-  guidance. It passed local package checks but has not been installed in either
-  host. A separate Rails discoverability fix is local and not deployed; do not
-  infer that the missing values are fixed in production.
+  guidance. It passed local package checks; its Claude and ChatGPT web packages
+  have not completed package-level host acceptance. Rails delivers these four
+  source skills to new embedded Agent sessions through an authenticated MCP
+  resource. This does not prove a finished customer production.
 - Codex packaging is documented, but a fresh installed journey and automatic
   skill discovery remain unverified. No public Claude, ChatGPT, or Codex listing
   is claimed.

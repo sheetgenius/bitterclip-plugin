@@ -9,7 +9,7 @@ Get the person to one useful next state: a selected ready Episode, or a clear up
 
 If the request is for a standalone programmable effect or FX Studio scene, use `fx-studio` instead; a Recording or Episode is not a prerequisite for scene authoring.
 
-Use the connected BitterClip MCP server. Let the host perform OAuth; never request, paste, or retain credentials. Use `account_context_get` only when the account or studio is ambiguous. Use `projects_list`, `recordings_list`, and `episodes_list` to discover current work. If an unfamiliar tool contract matters, use `list_docs`, `search_docs`, or `read_doc` narrowly instead of guessing or reading the whole documentation set.
+Use the connected BitterClip MCP server. Let the host perform OAuth; never request, paste, or retain credentials. Use `account_context_get` only when the account or studio is ambiguous. Use `projects_list`, `recordings_list`, and `episodes_list` to discover current work. If an unfamiliar tool contract matters, call `help` with its exact `bitterclip://docs/tools/<name>` URI or a short question instead of guessing or reading the whole documentation set.
 
 For an existing library, return a small relevant choice rather than an inventory dump. Prefer a searchable, ready Episode that fits the person's latest requested intent and the current Project working brief when available; never assume a personal default Project, source, or destination. Keep every returned handle tool-only. Call `workspace_open` once and last only when the person asked to open, show, edit, or review an exact target; report its `open_status` honestly rather than claiming the host visibly opened something.
 

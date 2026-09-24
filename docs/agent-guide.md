@@ -46,9 +46,9 @@ them into a host-specific guide.
    programmable scene or ordinary visual feedback on that same scene. It is not
    a Recording, Clip, Render, or production-application shortcut.
 
-Use BitterClip's live tool descriptions and narrow documentation when an
-operation contract matters. For the current product model and public guidance,
-read:
+Use BitterClip's live tool descriptions and call its `help` tool with a short
+question or exact `bitterclip://docs` URI when an operation contract matters.
+For the current product model and public guidance, read:
 
 - [agent-readable BitterClip documentation](https://bitterclip.com/llms.txt)
 - [product documentation](https://bitterclip.com/docs)

@@ -159,17 +159,18 @@ current plans in the [homepage pricing section](https://bitterclip.com/#pricing)
 
 ## Host support
 
-Observed through 2026-09-21:
+Observed through 2026-09-24:
 
 | Host | Package path | Current evidence |
 | --- | --- | --- |
+| BitterClip embedded Agent | Rails-delivered skill bundle from this repository's `main` | Rails validates and serves the four skill files over its authenticated MCP resource. The embedded Agent loads the bundle before a session and injects it into its prompt. This is product integration, not installation of a marketplace package or proof of editorial acceptance. |
 | Claude web | Generated Claude ZIP | Private 0.2.0 enabled four skills with no new OAuth grant; FX, Clip, and review skills loaded automatically. The baseline needed engineering coaching. Ordinary feedback then improved the same Clip, retained its first Export, and produced a revised video that visibly played and downloaded. Listening and full editorial acceptance remain open. |
 | Claude Code | Generated local marketplace | Isolated install checked with Claude Code 2.1.269. |
 | Codex / ChatGPT desktop | Portable Agent Plugins package through a local or repo marketplace | The package follows the documented portable schema; a fresh BitterClip install and automatic skill-discovery journey have not yet been run. |
 | ChatGPT web | Four separate 0.2.0 skill ZIPs plus existing hosted MCP connection | All four skills installed; FX was explicitly invoked. The first Export needed engineering coaching; ordinary feedback then revised the same scene and Clip without further coaching. Both exact Exports remained available, and the revised video visibly played in first-party Outputs. Host review cards remained stale, while download, audio, and host delivery were unverified. This was not a whole-plugin import. |
 
-The 0.2.1 source package tightens FX Studio recovery guidance, but it has not
-completed package-level host acceptance. The available GitHub release remains
+The 0.2.1 source package tightens FX Studio recovery guidance. Its marketplace
+packages have not completed package-level host acceptance. The available GitHub release remains
 v0.1.3, with no public vendor listing. See
 [Installation](docs/installation.md#support-status) for the exact boundary.
 
