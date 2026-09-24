@@ -29,10 +29,11 @@ Pass current revisions and returned evidence unchanged. Follow each tool's suppo
 Treat post-mutation edge or transcript-overlap warnings as required recovery,
 not as a failed create or a clean result. Keep the exact created target and
 revision; do not replay `clip_create`, render, or claim clean edges yet. A
-warning may name a source or segment second, not a child-local second. Read the
-created target with `episode_read`, map every flagged source/segment edge to its
-exact child-local time, then use `episode_zoom` on the child at each mapped
-point. Never reuse a parent/source coordinate as child-local time. Pre-create
+warning may name a source or segment second, not a child-local second. Use each
+supplied child-local `episode_seconds` directly. When absent, read the created
+target with `episode_read` and map the flagged source/segment edge to its exact
+child-local time. Then use `episode_zoom` on the child at each point. Never
+reuse a parent/source coordinate as child-local time. Pre-create
 source receipts do not discharge this target-bound check.
 `clip_create` has no caller boundary-token field and persists its warnings
 separately; the server does not automatically block a Render while they remain.
